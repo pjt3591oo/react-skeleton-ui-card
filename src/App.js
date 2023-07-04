@@ -1,23 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import Post from './components/post/card';
+import usePost from './hooks/usePost';
 
 function App() {
+  const { posts, isLoading, lastPostCount } = usePost();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{background: '#e3e3ee3'}}>
+      <div>
+        <Post posts={posts} isLoading={isLoading} lastPostCount={lastPostCount}/>
+      </div>
     </div>
   );
 }
